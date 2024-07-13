@@ -2328,6 +2328,29 @@ components:
             htmlUrl:
               type: string
 
+    AuthenticationInfo:
+      type: object
+      properties:
+        authType:
+          type: string
+          enum:
+            - OAUTH2
+            - LOGIN_FORM
+            - DISABLED # TODO enabled flag instead??
+            - LDAP
+        oAuthProviders:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthProvider'
+
+    OAuthProvider:
+      type: object
+      properties:
+        clientName:
+          type: string
+        authorizationUri:
+          type: string
+
     Cluster:
       type: object
       properties:
